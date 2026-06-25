@@ -17,6 +17,12 @@ const PORT = process.env.PORT || 5000;
 app.use(
   helmet({
     crossOriginResourcePolicy: { policy: 'cross-origin' },
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        "frame-src": ["'self'", "https://proof-lock-frontend.onrender.com", "https://easygapp.netlify.app"],
+      },
+    },
   })
 );
 

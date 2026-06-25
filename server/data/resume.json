@@ -1,0 +1,50 @@
+{
+  "experience": [
+    {
+      "id": 1,
+      "role": "Automation Intern – AI Systems",
+      "company": "Agnikul Cosmos Pvt. Ltd. · IIT Madras Research Park",
+      "period": "Oct 2025 – Apr 2026",
+      "summary": "Built and deployed an on-premise LLM application using Ollama models with LoRA adaptations, optimizing inference workflows for secure enterprise automation. Designed and enhanced RAG pipelines using embeddings and vector search, implementing semantic routing and tool-calling for accurate, context-aware ERP query resolution with reduced hallucination."
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "role": "B.E. Computer Science and Engineering",
+      "company": "Rajalakshmi Institute of Technology, Chennai",
+      "period": "2023 – Present",
+      "summary": "CGPA: 8.63. Focusing on AI/ML, computer vision, and full-stack development. Published copyright-registered research on automated solar sunspot detection (SW-3716/2026-CO)."
+    },
+    {
+      "id": 2,
+      "role": "Higher Secondary (HSC) & SSLC",
+      "company": "Dhanish Matric Higher Secondary School, Chennai",
+      "period": "2020 – 2022",
+      "summary": "HSC (12th Grade): 86.2% — SSLC (10th Grade): 92.8%."
+    }
+  ],
+  "certifications": [
+    {
+      "id": 1,
+      "role": "GenAI-Powered Data Analytics Job Simulation",
+      "company": "TATA (Forage)",
+      "period": "2025",
+      "summary": "Hands-on simulation covering generative AI applications in enterprise data analytics workflows."
+    },
+    {
+      "id": 2,
+      "role": "Data Analytics Job Simulation",
+      "company": "Deloitte (Forage)",
+      "period": "2025",
+      "summary": "Practical simulation focused on data-driven decision making, analytics tools, and consulting-style problem solving."
+    },
+    {
+      "id": 3,
+      "role": "Intermediate to Advanced Python with OOP",
+      "company": "Udemy",
+      "period": "2025",
+      "summary": "Comprehensive Python course covering object-oriented programming, design patterns, and advanced language features."
+    }
+  ]
+}

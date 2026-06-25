@@ -1,0 +1,61 @@
+[
+  {
+    "category": "Full Stack & Languages",
+    "skills": [
+      { "name": "Python", "icon": "🐍" },
+      { "name": "Java", "icon": "☕" },
+      { "name": "SQL", "icon": "💾" },
+      { "name": "React", "icon": "⚛️" },
+      { "name": "Vite", "icon": "⚡" },
+      { "name": "HTML5", "icon": "🧱" },
+      { "name": "CSS3", "icon": "💅" },
+      { "name": "Tailwind CSS", "icon": "🎨" },
+      { "name": "Node.js", "icon": "🟢" },
+      { "name": "FastAPI", "icon": "⚡" }
+    ]
+  },
+  {
+    "category": "AI",
+    "skills": [
+      { "name": "Large Language Models (LLMs)", "icon": "🧠" },
+      { "name": "Retrieval-Augmented Generation (RAG)", "icon": "🔍" },
+      { "name": "Tool Calling / AI Agents", "icon": "🤖" },
+      { "name": "Prompt Engineering", "icon": "✍️" },
+      { "name": "LoRA Fine-tuning", "icon": "🛠️" },
+      { "name": "Ollama", "icon": "🦙" },
+      { "name": "Embeddings & Vector Search", "icon": "📈" },
+      { "name": "Semantic Search", "icon": "🔎" },
+      { "name": "Claude", "icon": "🤖" },
+      { "name": "Codex", "icon": "💻" },
+      { "name": "NotebookLM", "icon": "📓" },
+      { "name": "Gamma", "icon": "✨" },
+      { "name": "Antigravity", "icon": "🌌" }
+    ]
+  },
+  {
+    "category": "ML",
+    "skills": [
+      { "name": "PyTorch", "icon": "🔥" },
+      { "name": "YOLOv5", "icon": "🎯" },
+      { "name": "MobileNetV2", "icon": "📱" },
+      { "name": "CNNs", "icon": "🕸️" },
+      { "name": "Neural Networks", "icon": "🧠" },
+      { "name": "OpenCV", "icon": "👁️" },
+      { "name": "Pandas", "icon": "🐼" },
+      { "name": "NumPy", "icon": "🔢" },
+      { "name": "Matplotlib", "icon": "📊" },
+      { "name": "Hugging Face", "icon": "🤗" }
+    ]
+  },
+  {
+    "category": "Tools",
+    "skills": [
+      { "name": "Git", "icon": "🐙" },
+      { "name": "GitHub", "icon": "🐙" },
+      { "name": "VS Code", "icon": "💻" },
+      { "name": "Jupyter Notebook", "icon": "📓" },
+      { "name": "Google Colab", "icon": "☁️" },
+      { "name": "Power BI", "icon": "📉" }
+    ]
+  }
+]

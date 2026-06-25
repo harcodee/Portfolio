@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Coffee-inspired Core Color System */
+  --bg-primary: #110703;
+  --bg-secondary: #230F08;
+  --bg-deep: #34170D;
+  --bg-light: #6E3C19;
+  --bg-accent: #A7795E;
+
+  --text-on-green: #F7F3EE;
+  --text-secondary: #C8BCB1;
+
+  --border-color: rgba(167, 121, 94, 0.18);
+  --hover-accent: #F7F3EE;
+
+  /* Typography */
+  --font-display: 'Suisse Works', 'Suisse Works Medium', 'Lora', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
+
+  --transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-on-green);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  /* clip prevents horizontal overflow without creating a new scroll container, so Framer Motion useScroll reads the real viewport */
+}
+
+.glowing-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+
+  /* EXACT original color */
+  color: #A7795E;
+
+  transition:
+    color 0.4s ease-in-out,
+    text-shadow 0.4s ease-in-out;
+}
+
+.glowing-text:hover {
+  /* EXACT original color */
+  color: #34170D;
+
+  text-shadow:
+    0 0 10px rgba(167, 121, 94, 0.8),
+    0 0 20px rgba(167, 121, 94, 0.6),
+    0 0 40px rgba(167, 121, 94, 0.4);
+}
+
+/* Precision desktop cursor */
+@media (pointer: fine) {
+
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}
+
+/* ─── Typography Architecture ─── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: var(--text-on-green);
+}
+
+.display-xl {
+  font-size: clamp(64px, 14vw, 160px);
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+}
+
+.display-lg {
+  font-size: clamp(48px, 8vw, 92px);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+}
+
+.display-md {
+  font-size: clamp(36px, 5vw, 60px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.body-text {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ─── Layout blocks ─── */
+.section {
+  position: relative;
+  padding: 160px 0;
+  /* overflow: hidden removed — it breaks position:sticky children and Framer Motion useScroll */
+}
+
+.block-green {
+  background-color: var(--bg-primary);
+}
+
+.block-green-dark {
+  background-color: var(--bg-secondary);
+}
+
+.block-green-deep {
+  background-color: var(--bg-deep);
+}
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 0;
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+}
+
+.section-number {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-family: var(--font-display);
+  font-size: 16vw;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 0.7;
+  z-index: 0;
+  user-select: none;
+}
+
+/* ─── Architectural Panels ─── */
+.arch-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.arch-panel:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-4px);
+}
+
+/* ─── Pills / Badges ─── */
+.pill,
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 2px;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-color);
+  color: var(--text-on-green);
+  transition: all var(--transition);
+}
+
+.pill:hover,
+.tag:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ─── Editorial CTA Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 52px;
+  padding: 0 32px;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #FFFFFF;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--text-on-green);
+  color: var(--bg-primary);
+  border-color: var(--text-on-green);
+}
+
+.btn-primary:hover {
+  background: var(--bg-accent);
+  border-color: var(--bg-accent);
+  color: var(--text-on-green);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(167, 121, 94, 0.25);
+}
+
+.btn-outline {
+  border-color: rgba(247, 243, 238, 0.35);
+  color: var(--text-on-green);
+}
+
+.btn-outline:hover {
+  background: var(--text-on-green);
+  color: var(--bg-primary);
+  border-color: var(--text-on-green);
+  transform: translateY(-3px);
+}
+
+.btn-ghost {
+  border-color: transparent;
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  color: var(--text-on-green);
+}
+
+/* ─── Haven Tactile Noise ─── */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.022;
+  z-index: 9998;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3e%3Cfilter id='noiseFilter'%3e%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3e%3C/filter%3e%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3e%3C/svg%3e");
+}
+
+.dot-pattern {
+  background-image: radial-gradient(rgba(167, 121, 94, 0.15) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.engineering-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, var(--bg-accent) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bg-accent) 1px, transparent 1px);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-color);
+  border: none;
+  margin: 0;
+}
+
+/* ─── Webkit Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFFFFF;
+}
+
+/* ─── Scroll Progress Bar ─── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #FFFFFF;
+  transform-origin: 0%;
+  z-index: 10001;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #FFFFFF;
+  color: var(--bg-primary);
+  padding: 8px;
+  z-index: 10002;
+  transition: top 0.2s;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+}

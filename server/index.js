@@ -23,16 +23,21 @@ app.use(
 // CORS — locked to allowed origin
 const allowedOrigins = process.env.ALLOWED_ORIGIN
   ? process.env.ALLOWED_ORIGIN.split(',').map((o) => o.trim())
-  : ['http://localhost:5173'];
+  : ['http://localhost:5173', 'https://harine-t-portfolio.onrender.com'];
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (e.g. curl, Postman in dev)
-      if (!origin && process.env.NODE_ENV === 'development') {
+      // Allow requests with no origin (e.g. same-origin, curl, etc.)
+      if (!origin) {
         return callback(null, true);
       }
-      if (!origin || allowedOrigins.includes(origin)) {
+      // Allow local development, configured origins, or any Render subdomain deployments
+      if (
+        allowedOrigins.includes(origin) ||
+        origin.endsWith('.onrender.com') ||
+        origin.startsWith('http://localhost:')
+      ) {
         callback(null, true);
       } else {
         callback(new Error(`CORS: Origin ${origin} not allowed`));
